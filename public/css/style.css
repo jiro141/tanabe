@@ -11,7 +11,7 @@ html {
 h2,
 h3,
 h4 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 h2 {
   text-transform: uppercase;
@@ -21,7 +21,7 @@ h2 {
   color: #333;
 }
 h3 {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
   color: #333;
 }
@@ -36,7 +36,7 @@ h5 {
   line-height: 20px;
 }
 p {
-  font-size: 15px;
+  font-size: 25px;
 }
 p.intro {
   margin: 12px 0 0;
@@ -135,10 +135,10 @@ hr {
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #fff;
-  border-color: #608dfd;
+  border-color: #c60502;
 }
 .navbar-default .navbar-toggle:hover > .icon-bar {
-  background-color: #608dfd;
+  background-color: #c60502;
 }
 .section-title {
   margin-bottom: 70px;
@@ -204,37 +204,59 @@ a:focus,
   outline-offset: none;
 }
 /* Header Section */
-.intro {
+#header {
+  position: relative;
   display: table;
   width: 100%;
-  height: 75rem;
+  height: 65rem;
   padding: 0;
   background: url(../img/header.jpg) center center no-repeat;
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+  background-position: center;
+  z-index: -1; 
 }
+
+.intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus necesidades */
+  /* Establece un z-index bajo */
+}
+
 .intro .overlay {
   background: rgba(0, 0, 0, 0.2);
 }
-.intro h1 {
-  font-family: "Raleway", sans-serif;
+
+#header h1 {
+  font-family: "Montserrat", sans-serif;
   color: #fff;
   font-size: 82px;
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 10px;
+  z-index: 999;
+  background: transparent; /* Quita el color de fondo */
+  position: relative; 
+  margin-left: 20px;
+  max-width: 500px;/* Asegura que el h1 esté por encima del #header */
 }
+
 .intro h1 span {
   font-weight: 800;
   color: #5ca9fb;
 }
 .intro p {
   color: #fff;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 30px;
   margin: 0 auto;
@@ -244,6 +266,45 @@ header .intro-text {
   padding-top: 350px;
   padding-bottom: 200px;
   text-align: center;
+}
+.imagen {
+  text-align: left;
+  margin-top: -10rem;
+  width: 15%;
+  margin-left: -80%;
+  background-color: #FBF7EE;
+  padding: 1%;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .imagen {
+    width: 30%;
+    margin-top: -5rem;
+    margin-left: 0%; /* Ajusta el ancho para pantallas más pequeñas */
+  }
+}
+.boton {
+  background-color: #fbf7ee00;
+  border-radius: 10px;
+  padding: 10px 20px; /* Tamaño fijo del padding para ajustar el ancho */
+  border: 1px solid #fbf7ee;
+  font-size: 20px;
+  width: 200px; /* Ancho fijo para el botón */
+  text-align: center; /* Centra el texto dentro del botón */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #fbf7ee;
+  font-family: "Montserrat", sans-serif;  
+}
+
+.boton:hover {
+  background-color: #fbf7ee;
+  color: #c60502;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-around;
 }
 /* Features Section */
 #features {
@@ -263,17 +324,17 @@ header .intro-text {
 }
 /* About Section */
 #about {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 #about h3 {
-  font-size: 22px;
+  font-size: 30px;
   margin: 0 0 20px;
 }
 #about h2 {
   position: relative;
   margin-bottom: 15px;
   padding-bottom: 15px;
-  color: #FFF;
+  color: #fff;
 }
 #about h2::after {
   position: absolute;
@@ -289,7 +350,7 @@ header .intro-text {
   margin-left: 6px;
   list-style: none;
   padding: 0;
-  color: #FFF;
+  color: #fff;
 }
 #about .about-text li:before {
   content: "\f00c";
@@ -307,9 +368,9 @@ header .intro-text {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
 #about p {
-  line-height: 24px;
+  line-height: 18px;
   margin: 30px 0;
-  color: #FFF;
+  color: #fff;
 }
 /* Services Section */
 #services {
@@ -357,6 +418,7 @@ header .intro-text {
 /* Portfolio Section */
 #portfolio {
   padding: 100px 0;
+  background-color: #fbf7ee;
 }
 .portfolio-item {
   margin: 1px -15px 0 -14px;
@@ -585,12 +647,12 @@ label {
 }
 /* Footer Section*/
 #footer {
-  background: #f6f6f6;
+  background: linear-gradient(to right, #922422 0%, #c60502 100%);
   padding: 30px 0;
 }
 #footer p {
-  color: #888;
-  font-size: 14px;
+  color: #ffffff;
+  font-size: 20px;
 }
 #footer a {
   color: #608dfd;
@@ -603,4 +665,201 @@ label {
   #about img {
     margin: 50px 0;
   }
+}
+/* Agrega estilos de transición para la clase fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.ubi {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+}
+.ubi nav {
+  display: block;
+}
+.boton2 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: solid 2px #cc0033;
+  padding: 10px 0; /* Elimina el padding vertical y deja solo el padding horizontal */
+  width: 150px; /* Ajusta el ancho según tus necesidades */
+  color: black;
+  margin: 10px 0;
+  font-size: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.boton2:hover {
+  background-color: #c60502;
+  color: #fff;
+}
+.ubi-conteiner {
+  background-color: #c60502;
+  text-align: justify;
+  padding: 0 20px;
+}
+.ubi-conteiner h4 {
+  text-align: center;
+}
+.titulo {
+  margin-bottom: 70px;
+  text-transform: uppercase;
+}
+.titulo {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  color: #fbf7ee;
+  font-size: 25px;
+}
+.titulo::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(to right, #ffffff 0%, #fbf7ee 100%);
+  height: 4px;
+  width: 60px;
+  bottom: 0;
+  margin-left: -30px;
+  left: 50%;
+}
+.titulo2 {
+  margin-bottom: 70px;
+}
+.titulo2 {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  color: #fbf7ee;
+  font-size: 20px;
+}
+.titulo2::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(to right, #ffffff 0%, #fbf7ee 100%);
+  height: 4px;
+  width: 50px;
+  bottom: 0;
+  margin-left: -70px;
+  /* left: 50%; */
+}
+.lista {
+  color: #fff;
+  margin: 20px 0;
+}
+.lista li {
+  margin: 30px 0;
+  font-size: 15px;
+}
+.datos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+.datos img {
+  max-width: 300px;
+  margin: 20px;
+}
+.redes {
+  margin: 20px;
+}
+.redes a {
+  color: #fff;
+  font-size: 16px;
+  margin: 20px;
+}
+.redes i {
+  color: #fff;
+  font-size: 20px;
+}
+.redes li {
+  margin: 20px 0;
+}
+.historia {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.historia img{
+  max-width: 400px;
+}
+.historia p{
+ color: black;
+ font-size: 18px;
+ text-align: justify;
+ font-family: "Montserrat", sans-serif;
+}
+@media (max-width: 768px) {
+  .ubi {
+    grid-template-columns: 1fr;
+  }
+
+  .datos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .datos img {
+    max-width: 100%;
+    margin: 20px 0;
+  }
+
+  .historia {
+    grid-template-columns: 1fr;
+  }
+
+  .historia img {
+    max-width: 100%;
+  }
+
+  .titulo::after,
+  .titulo2::after {
+    margin-left: -20px;
+  }
+}
+@media (max-width: 768px) {
+  .boton {
+    padding: 10px 30px;
+    margin: 20px 0; /* Ajusta el padding según tus necesidades */
+  }
+
+  .botones {
+    flex-direction: column; /* Cambia a una disposición vertical */
+    align-items: center; /* Centra los botones en el eje horizontal */
+  }
+}
+.location-selector-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #fbf7ee;
+  padding: 20px;
+}
+
+.selector {
+  flex: 0 1 calc(33.3333% - 10px);
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 18px;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.select {
+  width: 100%;
+  font-size: 18px;
+  padding: 8px;
+  border: none; /* Quita el borde */
+  border-radius: 5px; /* Agrega borde radius */
 }

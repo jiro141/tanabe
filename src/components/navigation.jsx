@@ -42,11 +42,11 @@ export const Navigation = (props) => {
                 Ubicación
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#Contact" className="page-scroll">
                 Contacto
               </a>
-            </li>
+            </li> */}
             {/* <li>
               <a href="#testimonials" className="page-scroll">
                 Testimonials

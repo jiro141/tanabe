@@ -1,41 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyContext } from "../context/MainContext";
 
 export const About = (props) => {
+  const [myState, setMyState] = useContext(MyContext);
+
+  const handleButtonClick = (value) => {
+    setMyState((prev) => ({ ...prev, data: value }));
+  };
+
   return (
-    <div id="about"  style={{ background: "linear-gradient(to right, #922422 0%, #c60502 100%)" }}>
-      <div className="container text-white">
-        <div className="row">
-          <div className="col-xs-12 col-md-6">
-            {" "}
-            <img src="img/about.jpg" className="img-responsive" alt="" />{" "}
-          </div>
-          <div className="col-xs-12 col-md-6 text-white">
-            <div className="about-text ">
-              <h2>Quienes somos</h2>
-              <p>{props.data ? props.data.paragraph : "loading..."}</p>
-              {/* <h3>Why Choose Us?</h3> */}
-              {/* <div className="list-style">
-                <div className="col-lg-6 col-sm-6 col-xs-12">
-                  <ul>
-                    {props.data
-                      ? props.data.Why.map((d, i) => (
-                          <li key={`${d}-${i}`}>{d}</li>
-                        ))
-                      : "loading"}
-                  </ul>
-                </div>
-                <div className="col-lg-6 col-sm-6 col-xs-12">
-                  <ul>
-                    {props.data
-                      ? props.data.Why2.map((d, i) => (
-                          <li key={`${d}-${i}`}> {d}</li>
-                        ))
-                      : "loading"}
-                  </ul>
-                </div>
-              </div> */}
-            </div>
-          </div>
+    <div
+      id="about"
+      style={{
+        background: "linear-gradient(to right, #922422 0%, #c60502 100%)",
+      }}
+    >
+      <div className="container">
+        <div className="botones">
+          <button onClick={() => handleButtonClick(1)} className="boton">
+            Dojos <br /> asociados
+          </button>
+          <button onClick={() => handleButtonClick(2)} className="boton">
+            Asociacion <br /> Tanabe Kai
+          </button>
+          <button onClick={() => handleButtonClick(3)} className="boton">
+            Maestro <br /> Kunio Tanabe
+          </button>
         </div>
       </div>
     </div>
