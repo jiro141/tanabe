@@ -1,12 +1,13 @@
 body,
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   color: #777;
   font-weight: 400;
   width: 100% !important;
   height: 100% !important;
+  overflow-x: hidden !important;
 }
 h2,
 h3,
@@ -206,18 +207,48 @@ a:focus,
 /* Header Section */
 #header {
   position: relative;
-  display: table;
+  display: flex;
+  justify-content: flex-end; /* Alinea los elementos al final (derecha) */
+  align-items: end; /* Alinea los elementos al final (abajo) */
+  flex-direction: column; /* Establece la dirección de flexión como columna */
   width: 100%;
   height: 65rem;
   padding: 0;
   background: url(../img/header.jpg) center center no-repeat;
   background-color: #ffffff;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
   background-position: center;
-  z-index: -1; 
+  z-index: -1;
+}
+
+/* Estilos para los h1 */
+.vertical-h1 {
+  writing-mode: vertical-rl; /* Texto vertical de derecha a izquierda */
+  margin-right: 15%; /* Margen para separar del borde en escritorio */
+}
+
+/* Estilos para el h2 */
+.horizontal-h2 {
+  display: flex; /* Para que el h2 sea horizontal */
+  align-items: center; /* Para centrar verticalmente el h2 */
+  margin-right: 20px; /* Margen para separar del siguiente elemento */
+}
+
+/* Media query para dispositivos con un ancho máximo de 768px (típicamente dispositivos móviles y tablets) */
+@media only screen and (max-width: 768px) {
+  #header {
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+  }
+
+  /* Para dispositivos responsivos, el margen de los h1 se reinicia */
+  .vertical-h1 {
+    margin-right: 0;
+  }
+  .horizontal-h2 {
+    text-align: center; /* Para centrar verticalmente el h2 */
+    margin-right: 0px; /* Margen para separar del siguiente elemento */
+  }
 }
 
 .intro::before {
@@ -227,8 +258,7 @@ a:focus,
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus necesidades */
-  /* Establece un z-index bajo */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .intro .overlay {
@@ -238,16 +268,44 @@ a:focus,
 #header h1 {
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 82px;
+  font-size: 80px;
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 10px;
   z-index: 999;
-  background: transparent; /* Quita el color de fondo */
-  position: relative; 
-  margin-left: 20px;
-  max-width: 500px;/* Asegura que el h1 esté por encima del #header */
+  background: transparent;
+  position: relative;
+  writing-mode: vertical-rl;
+  margin-right: 20px; /* Agrega un margen entre los elementos */
+}
+
+#header h1:last-child {
+  margin-right: 0; /* Elimina el margen del último elemento */
+}
+
+#header h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 10px;
+  z-index: 999;
+  background: transparent;
+  position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  #header {
+    height: 55rem; /* Ajusta la altura automáticamente en dispositivos móviles */
+  }
+
+  #header h1 {
+    font-size: 48px; /* Cambia el tamaño de la fuente para dispositivos móviles */
+    max-width: 100%; /* Cambia el max-width para dispositivos móviles */
+  }
 }
 
 .intro h1 span {
@@ -272,14 +330,14 @@ header .intro-text {
   margin-top: -10rem;
   width: 15%;
   margin-left: -80%;
-  background-color: #FBF7EE;
+  background-color: #fbf7ee;
   padding: 1%;
   border-radius: 50%;
 }
 
 @media (max-width: 768px) {
   .imagen {
-    width: 30%;
+    width: 42%;
     margin-top: -5rem;
     margin-left: 0%; /* Ajusta el ancho para pantallas más pequeñas */
   }
@@ -294,7 +352,7 @@ header .intro-text {
   text-align: center; /* Centra el texto dentro del botón */
   transition: background-color 0.3s ease, color 0.3s ease;
   color: #fbf7ee;
-  font-family: "Montserrat", sans-serif;  
+  font-family: "Montserrat", sans-serif;
 }
 
 .boton:hover {
@@ -310,6 +368,7 @@ header .intro-text {
 #features {
   background: #f6f6f6;
 }
+
 #features i.fa {
   font-size: 38px;
   margin-bottom: 20px;
@@ -789,14 +848,21 @@ label {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-.historia img{
+.historia img {
   max-width: 400px;
 }
-.historia p{
- color: black;
- font-size: 18px;
- text-align: justify;
- font-family: "Montserrat", sans-serif;
+.historia p {
+  color: black;
+  font-size: 18px;
+  text-align: justify;
+  font-family: "Montserrat", sans-serif;
+}
+.historia p span {
+  color: black;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: justify;
+  font-family: "Montserrat", sans-serif;
 }
 @media (max-width: 768px) {
   .ubi {
@@ -862,4 +928,108 @@ label {
   padding: 8px;
   border: none; /* Quita el borde */
   border-radius: 5px; /* Agrega borde radius */
+}
+.navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.botones-flecha {
+  background-color: #fbf7ee;
+  border: 2px solid #bd0a07;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none; /* Eliminar el borde azul al enfocar */
+}
+
+.botones-flecha:hover {
+  background-color: #bd0a07;
+  color: #fbf7ee;
+}
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+}
+
+.ol-popup:after,
+.ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48%;
+  margin-left: -10px;
+}
+
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48%;
+  margin-left: -11px;
+}
+
+.ol-popup-closer {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card {
+  background: linear-gradient(to right, #922422 0%, #c60502 100%);
+  padding: 2vw;
+  color: white;
+  margin-bottom: 2vw;
+  margin-right: 2vw;
+  border-radius: 5px;
+  box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2);
+  width: calc(33.33% - 4vw); /* Ancho del 33.33% menos margen a la derecha */
+  max-width: 400px;
+  max-height: 300px;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: calc(50% - 4vw); /* Ancho del 50% menos margen a la derecha */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .card {
+    width: calc(100% - 4vw); /* Ancho completo menos margen a la derecha */
+  }
+}
+.responsive-styles {
+  display: flex;
+  margin-top: 0;
+  justify-content: end;
+}
+
+@media (max-width: 768px) {
+  .responsive-styles {
+    margin-top: 8% !important;
+    justify-content: center;
+  }
 }

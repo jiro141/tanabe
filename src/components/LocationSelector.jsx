@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { MyContext } from "../context/MainContext";
 
 const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
   const [countries, setCountries] = useState([]);
@@ -6,49 +7,46 @@ const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
   const [states, setStates] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [cities, setCities] = useState([]);
-//   const [selectedCity, setSelectedCity] = useState("");
+  //   const [selectedCity, setSelectedCity] = useState("");
+  const [myState, setMyState, language, setLanguage] = useContext(MyContext);
 
-  // Simula la carga de datos de países
+  // Simulates loading country data
   useEffect(() => {
-    // Aquí puedes cargar los países desde una API o cualquier otra fuente de datos
-    // Por ahora, solo simularé algunos países
-    const countriesData = ["Venezuela", "USA", "Japon"];
+    // Here you could load countries from an API or any other data source
+    // For now, let's simulate some countries
+    const countriesData = language === "us" ? ["United States", "Venezuela"] : ["Estados Unidos", "Venezuela"];
     setCountries(countriesData);
-  }, []);
+  }, [language]);
 
-  // Simula la carga de estados basados en el país seleccionado
+  // Simulates loading states based on the selected country
   useEffect(() => {
-    // Aquí puedes cargar los estados basados en el país seleccionado
-    // Por ahora, solo simularé algunos estados para los países seleccionados
+    // Here you could load states based on the selected country
+    // For now, let's simulate some states for the selected countries
     let statesData = [];
-    if (selectedCountry === "USA") {
-      statesData = ["Miami", "New York", "Texas"];
+    if (selectedCountry === "United States") {
+      statesData = language === "us" ? ["Miami", "New York", "Texas"] : ["Miami", "Nueva York", "Texas"];
     } else if (selectedCountry === "Venezuela") {
-      statesData = ["Zulia", "Tachira", "Distrito Capital","Anzoategui"];
-    } else if (selectedCountry === "Japon") {
-      statesData = ["Tokio", "Kioto", "No se dime tu alfredo"];
+      statesData = language === "us" ? ["Zulia", "Táchira"] : ["Zulia", "Táchira"];
     }
     setStates(statesData);
     setSelectedState("");
-  }, [selectedCountry]);
+  }, [selectedCountry, language]);
 
-  // Simula la carga de ciudades basadas en el estado seleccionado
+  // Simulates loading cities based on the selected state
   useEffect(() => {
-    // Aquí puedes cargar las ciudades basadas en el estado seleccionado
-    // Por ahora, solo simularé algunas ciudades para los estados seleccionados
+    // Here you could load cities based on the selected state
+    // For now, let's simulate some cities for the selected states
     let citiesData = [];
     if (selectedState === "Zulia") {
-      citiesData = ["Maracaibo", "Cabimas", "Ciudad Ojeda","Kilome 13"];
-    } else if (selectedState === "Tachira") {
-      citiesData = ["San Cristobal", "Tariba", "Cordero"];
-    } else if (selectedState === "Distrito Capital") {
-      citiesData = ["Caracas", "Chacao", "Monte y culebra"];
-    }
+      citiesData = language === "us" ? ["Maracaibo", "Ciudad Ojeda", "Machiques de Perijá"] : ["Maracaibo", "Ciudad Ojeda", "Machiques de Perijá"];
+    } else if (selectedState === "Táchira") {
+      citiesData = language === "us" ? ["San Cristobal"] : ["San Cristóbal"];
+    } 
     setCities(citiesData);
     setSelectedCity("");
-  }, [selectedState]);
+  }, [selectedState, language]);
 
-  // Llama a la función onChange cuando se selecciona una ciudad
+  // Calls the onChange function when a city is selected
   useEffect(() => {
     if (onChange && selectedCity) {
       onChange(selectedCity);
@@ -59,7 +57,7 @@ const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
     <div className="location-selector-container">
       <div className="selector">
         <label htmlFor="country" className="label">
-          País:
+          {language === "us" ? "Country:" : "País:"}
         </label>
         <select
           id="country"
@@ -67,7 +65,7 @@ const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
           value={selectedCountry}
           onChange={(e) => setSelectedCountry(e.target.value)}
         >
-          <option value="">Selecciona un país</option>
+          <option value="">{language === "us" ? "Select a country" : "Selecciona un país"}</option>
           {countries.map((country, index) => (
             <option key={index} value={country}>
               {country}
@@ -77,7 +75,7 @@ const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
       </div>
       <div className="selector">
         <label htmlFor="state" className="label">
-          Estado:
+          {language === "us" ? "State:" : "Estado:"}
         </label>
         <select
           id="state"
@@ -86,7 +84,7 @@ const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
           onChange={(e) => setSelectedState(e.target.value)}
           disabled={!selectedCountry}
         >
-          <option value="">Selecciona un estado</option>
+          <option value="">{language === "us" ? "Select a state" : "Selecciona un estado"}</option>
           {states.map((state, index) => (
             <option key={index} value={state}>
               {state}
@@ -96,7 +94,7 @@ const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
       </div>
       <div className="selector">
         <label htmlFor="city" className="label">
-          Ciudad:
+          {language === "us" ? "City:" : "Ciudad:"}
         </label>
         <select
           id="city"
@@ -105,7 +103,7 @@ const LocationSelector = ({ onChange, selectedCity, setSelectedCity }) => {
           onChange={(e) => setSelectedCity(e.target.value)}
           disabled={!selectedState}
         >
-          <option value="">Selecciona una ciudad</option>
+          <option value="">{language === "us" ? "Select a city" : "Selecciona una ciudad"}</option>
           {cities.map((city, index) => (
             <option key={index} value={city}>
               {city}

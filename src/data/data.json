@@ -1,11 +1,13 @@
 {
   "Header": {
-    "title": "We are a Landing Page",
-    "logo": "img/logo.png",
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
+    "spanish": {
+      "title":"De corazón a corazón, nuestro eterno agradecimiento."
+    },
+    "english":{
+      "title":"From heart to heart, our eternal gratitude."
+    }
   },
   "About": {
-    "Historia": "El maestro Kunio Tanabe llegó a Venezuela en 1971 con el sueño de convertirse en un pelotero de grandes ligas. Sin embargo, su destino lo llevó a convertirse en un pionero del karate en el país. Tanabe llegó a Maracaibo sin hablar español y respaldado por sus conocimientos de Karate y Judo. Sin embargo, su técnica y dedicación pronto lo llevaron a destacarse como instructor.En 1973, fundó su propio dojo en Maracaibo, el cual rápidamente se convirtió en un centro de referencia para los amantes del Karate Do en Venezuela. Tanabe enseñó a sus alumnos los estilos Shorinji-ryu y Shotokan, y pronto sus alumnos comenzaron a cosechar éxitos en campeonatos nacionales e internacionales. En 1980, Tanabe fue seleccionado como árbitro para el Campeonato Mundial de Karate de la World Union Karate Organization (WUKO). Esto representó un reconocimiento a su trayectoria y un impulso para el karate venezolano.",
     "Misión": "Nuestra misión en Dojo Tanabe Venezuela es proporcionar un ambiente de aprendizaje comprometido y respetuoso, donde los practicantes de artes marciales puedan cultivar habilidades físicas, mentales y espirituales. Nos esforzamos por fomentar la disciplina, la autoconfianza y el respeto, guiando a nuestros miembros hacia la excelencia en la práctica de las artes marciales japonesas.",
 
     "Visión": "En Dojo Tanabe Venezuela, aspiramos a ser reconocidos como un centro de excelencia en la enseñanza de las artes marciales, donde los estudiantes no solo adquieren habilidades técnicas sólidas, sino también valores fundamentales que les ayudarán a crecer como individuos comprometidos con la integridad, el respeto y la autodisciplina.",
@@ -154,19 +156,40 @@
   },
   "Features": [
     {
-      "icon": "fa fa-bullseye",
-      "title": "Misión",
-      "text": "Formar practicantes de Karate Do de alto nivel técnico y competitivo."
+      "spanish": {
+        "icon": "fa fa-bullseye",
+        "title": "Misión",
+        "text": "Fomentar y promover el Karate-Do Japonés como deporte, arte marcial y estilo de vida, formando atletas de alto nivel, profesionales excepcionales y ciudadanos honorables."
+      },
+      "english": {
+        "icon": "fa fa-bullseye",
+        "title": "Mission",
+        "text": "To foster and promote Japanese Karate-Do as a sport, martial art, and way of life, nurturing high-level athletes, exceptional professionals, and honorable citizens."
+      }
     },
     {
-      "icon": "fa fa-eye",
-      "title": "Visión",
-      "text": "Promover el Karate Do como un arte marcial y estilo de vida."
+      "spanish": {
+        "icon": "fa fa-eye",
+        "title": "Visión",
+        "text": "Ser reconocidos como una de las organizaciones de artes marciales más solidas y trascendentales del Continente Americano y la Comunidad Europea."
+      },
+      "english": {
+        "icon": "fa fa-eye",
+        "title": "Vision",
+        "text": "To be recognized as one of the strongest and most influential martial arts organizations in the Americas and the European Community."
+      }
     },
     {
-      "icon": "fa fa-cubes",
-      "title": "Objetivos",
-      "text": "Ser la principal asociación de Karate Do Shotokan de Venezuela."
+      "spanish": {
+        "icon": "fa fa-cubes",
+        "title": "Objetivos",
+        "text": "Proveer de las herramientas necesarias para la formación de ciudadanos ejemplares, campeones internacionales y entrenadores de alto nivel técnico."
+      },
+      "english": {
+        "icon": "fa fa-cubes",
+        "title": "Objectives",
+        "text": "To provide the necessary tools for the development of exemplary citizens, international champions, and coaches with high technical expertise."
+      }
     }
   ]
 }

@@ -13,18 +13,18 @@ const containerStyle = {
   margin: "auto", // Centrar horizontalmente
 };
 
-const center = {
-  lat: 7.7617623,
-  lng: -72.2217608,
-};
+
 
 function Map({ city }) {
-  console.log(city, "ciudad");
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBqeJBisRSAqQQjsSLc8OBBlAAW8Jwsj5c",
   });
-
+  const [center, setCenter] = useState({
+    lat: 7.7617623,
+    lng: -72.2217608,
+  });
+  console.log(center,'centro');
   const [map, setMap] = useState(null);
   const [selectedPoint, setSelectedPoint] = useState(null);
   const [pointsOfInterest, setPointsOfInterest] = useState([
@@ -61,19 +61,52 @@ function Map({ city }) {
 
   const loadPointsOfInterest = () => {
     let newPointsOfInterest = [];
-    if (city === "Cabimas") {
+    if (city === "Maracaibo") {
       newPointsOfInterest = [
         {
           id: 1,
-          position: { lat: 10.399726554308074, lng: -71.46209676307903 },
-          content: "Algun lado de cabimas",
+          position: { lat: 10.676713346727587, lng: -71.61577689815809 },
+          content:
+            "Dojo hombu Tanabe, Instructor: Hanshi Angel Urribarri, Dirrección:Calle 67A con Av 11. Sector tierra Negra. Al lado de Banzai Sushi, Telefono: +58-414-6160450",
         },
         {
           id: 2,
-          position:  { lat: 10.40444070958076, lng: -71.44622593052605 },
-          content: "otro lado de cabimas",
+          position: { lat: 10.574483705455178, lng: -71.63951813583556 },
+          content:
+            "Dojo San Francisco,Instructor: Sensei Roxana,Dirrección:Palacio de Combate San Felipe, Avenida 1, Avenida 10, Maracaibo, Zulia,Telefon:04246165925 / 04246247264",
+        },
+        {
+          id: 3,
+          position: { lat: 10.709305189335732, lng: -71.64881873973916 },
+          content:
+            "Dojo Nozomi,Instructor: Shihan Joel Millano,Dirrección:urbanización la Esperanza parroquia idelfonso Vasquez preescolar la esperanza, Zulia,Telefono:+58-424-6753049",
+        },
+        {
+          id: 4,
+          position: { lat: 10.553322133718035, lng: -71.63300289038072 },
+          content:
+            "Dojo Bushiwaza,Instructor: Sensei Merly Urdaneta,Dirrección:Av 16 entre calles 21 y 22, sector San Ramón, parroquia y municipio San Francisco, al lado del hospital Materno infantil de San Francisco.,Telefono:+58-424-6511614",
+        },
+        {
+          id: 5,
+          position: { lat: 10.58864461029343, lng: -71.63001110922126 },
+          content:
+            "Dojo Zenkokan,Instructor: Sensei Lenning Medina,Dirrección:Av. 19, calle 10-B Cancha de usos múltiples María Jung Al lado del Colegio 19 de Abril. Sierra Maestra,Telefono:+58-424-7452211",
+        },
+        {
+          id: 6,
+          position: { lat: 10.675495421540218, lng: -71.65808248875435 },
+          content:
+            "Dojo Ken Zen Karate Do,Instructor: Sensei Edwin J. Urdaneta,Dirrección:Urb. Los Aceituneros. Av. La Limpia altura 911 una cuadra detrás de la Estación de Servicio Los Aceitunos. Av 69A con Calle 79D.,Telefono: +58-424-6124833",
+        },
+        {
+          id: 7,
+          position: { lat: 10.64446819627546, lng: -71.61586745594508 },
+          content:
+            "Dojo Impdeprec,Instructor: Shihan-dai Pedro Valera,Dirrección:Av Padilla, Torres del Saladillo detrás de la Torre Cumana /  Av Padilla Plaza Urdaneta en el piso pulido que esta frente a la fuente de agua,Telefon:+58-414-6399805",
         },
       ];
+      setCenter({ lat: 10.64328299700237, lng: -71.61987370903822 });
     } else if (city === "New York City") {
       newPointsOfInterest = [
         {
@@ -98,7 +131,7 @@ function Map({ city }) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={9}
+      zoom={10}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >

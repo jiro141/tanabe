@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import emailjs from "emailjs-com";
 import React from "react";
-
+import { MyContext } from "../context/MainContext";
 const initialState = {
   name: "",
   email: "",
@@ -9,7 +9,7 @@ const initialState = {
 };
 export const Contact = (props) => {
   const [{ name, email, message }, setState] = useState(initialState);
-
+  const [myState, setMyState, language, setLanguage] = useContext(MyContext);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({ ...prevState, [name]: value }));
@@ -73,14 +73,28 @@ export const Contact = (props) => {
       <div id="footer">
         <div className="container text-center">
           <p>
-            © 2024 Tanabe Kai.{" "} Desarrollado por{" "} 
-            <a
-              style={{ textDecoration: "none", color: "#fff" }}
-              href="https://detipcompany.com/"
-              rel="nofollow"
-            >
-              DeTip Company{" "}
-            </a>
+            {language === "es" && (
+              <>
+                © 2024 Tanabe Kai. Desarrollado por{" "}
+                <a
+                  style={{ textDecoration: "none", color: "#fff" }}
+                  href="https://detipcompany.com/"
+                >
+                  DeTip Company.
+                </a>
+              </>
+            )}
+            {language === "us" && (
+              <>
+                © 2024 Tanabe Kai. Developed by{" "}
+                <a
+                  style={{ textDecoration: "none", color: "#fff" }}
+                  href="https://detipcompany.com/"
+                >
+                  DeTip Company.
+                </a>
+              </>
+            )}
           </p>
         </div>
       </div>
