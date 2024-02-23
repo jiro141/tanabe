@@ -19,7 +19,7 @@ export const About = (props) => {
             Tanabe Kai <br /> Organization
           </button>
           <button onClick={() => handleButtonClick(3)} className="boton">
-            Master <br /> Kunio Tanabe
+            Kancho <br /> Kunio Tanabe
           </button>
         </>
       );
@@ -33,7 +33,7 @@ export const About = (props) => {
             Organización <br /> Tanabe Kai
           </button>
           <button onClick={() => handleButtonClick(3)} className="boton">
-            Maestro <br /> Kunio Tanabe
+            Kancho <br /> Kunio Tanabe
           </button>
         </>
       );
