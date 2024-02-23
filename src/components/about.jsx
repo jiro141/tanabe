@@ -48,7 +48,7 @@ export const About = (props) => {
       }}
     >
       <div className="container">
-        <div className="buttons">
+        <div className="botones">
           {renderButtons()}
         </div>
       </div>
